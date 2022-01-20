@@ -43,7 +43,7 @@ ui = dashboardPage(
           #badgeLabel = "New",
           badgeColor = "success",
           tabName = "financeiro",
-          icon = icon("laptop-code")
+          icon = icon("dollar-sign")
         ),
         menuItem(
           "Comercial",
@@ -65,11 +65,11 @@ ui = dashboardPage(
           tabName = "diretoria",
           icon = icon("chart-area")
         ),
-        sidebarHeader("Configurações"),
+        sidebarHeader("Insight"),
         menuItem(
-          "Value/Info boxes",
-          tabName = "",
-          icon = icon("suitcase")
+          "Buscar",
+          tabName = "buscar",
+          icon = icon("search")
         ),
         
         #sidebarHeader("Modulos"),
@@ -77,35 +77,35 @@ ui = dashboardPage(
         
         #sidebarHeader("BS4 gallery"),
         menuItem(
-          text = "Departamentos",
+          text = "IA",
           icon = icon("cubes"),
           startExpanded = FALSE,
           menuSubItem(
             text = HTML(
               paste(
-                "Gallery 1",
+                "Algoritmo 1",
                 dashboardBadge(
                   "new",
-                  position = "right",
-                  color = "danger"
-                )
-              )
-            ),
-            tabName = "gallery1",
-            icon = icon("circle")
-          ),
-          menuSubItem(
-            text = HTML(
-              paste(
-                "Gallery 2",
-                dashboardBadge(
-                  "!",
                   position = "right",
                   color = "success"
                 )
               )
             ),
-            tabName = "gallery2"
+            tabName = "algoritmo1",
+            icon = icon("circle")
+          ),
+          menuSubItem(
+            text = HTML(
+              paste(
+                "Algoritmo 2",
+                dashboardBadge(
+                  #"!",
+                  position = "right",
+                  color = "success"
+                )
+              )
+            ),
+            tabName = "algoritmo2"
           )
         )
       )
@@ -207,7 +207,22 @@ ui = dashboardPage(
         ),
         tabItem(tabName = "diretoria",
           h2("Diretoria")
-        )
+                
+        ),
+        tabItem(tabName = "buscar",
+                fluidRow(
+                  column(3),
+                  column(6,
+                    searchInput(
+                      inputId = "search", label = "Buscar por termos",
+                      placeholder = "Desempenho financeiro",
+                      btnSearch = icon("search"),
+                      btnReset = icon("microphone"),
+                      width = "450px"
+                    )
+                  )
+                )
+                )
       )
       
     )
@@ -218,13 +233,7 @@ ui = dashboardPage(
 
 server = function(input, output, sesssion) {
     
-    set.seed(122)
-    histdata <- rnorm(500)
-    
-    output$plot1 <- renderPlot({
-      data <- histdata[seq_len(input$slider)]
-      hist(data)
-    })
+
 
     observeEvent(input$modal, {
       showModal(modalDialog(

@@ -1,0 +1,14 @@
+name: Jupiter_Analytics
+title: Jupiter_Analytics
+username:
+account: claytoncsj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5473305
+bundleId: 5487359
+url: https://claytoncsj.shinyapps.io/Jupiter_Analytics/
+when: 1642646744.79144
+lastSyncTime: 1642646744.79144
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: modal.R|StudentsPerformance (1).csv

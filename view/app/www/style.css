@@ -1,0 +1,36 @@
+.page-item.active .page-link {
+    background-color: #17a2b8b8 !important;
+    border: 1px solid #17a2b8b8;
+}
+.page-link {
+    color: #6c757d  !important;
+}
+
+.page-link:active{
+  color: #ffffff !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination{
+  justify-content: center !important;
+}
+
+/*CARD BODY TABLE*/
+
+.card-body{
+  padding: 0.1rem;
+}
+
+/*TABLE BORDER*/
+.table td, .table th{
+  border: none;
+}
+table.dataTable{
+  margin-bottom: 0 !important;
+}  
+.table.dataTable tbody td.active, .table.dataTable tbody tr.active td{
+  background-color: #17a2b8 !important;
+}
+  
+  
+  
+}

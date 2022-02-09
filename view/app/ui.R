@@ -1,8 +1,8 @@
 library(shiny)
 library(bs4Dash)
-#library(shinyWidgets)
+library(shinyWidgets)
 library(DT)
-source("datasetting.R", local = TRUE)
+# source("datasetting.R", local = TRUE)
 
 
 ui <- dashboardPage(
@@ -114,21 +114,38 @@ ui <- dashboardPage(
       )
     ),
     
-    controlbar = dashboardControlbar(),
+    # MENU APLICAR FILTROS
+    controlbar = dashboardControlbar(
+      skin = "light",
+      
+      sidebarMenu(
+        id = "sidebar_menu",
+        dateRangeInput("dd1", 
+                       "Filtrar por datas",
+                       language= "pt-BR",
+                       separator = "até",
+                       format = "dd/mm/yyyy",
+                       startview =  "month"
+                       ), 
+        actionButton("simulate", "Aplicar Filtro!", status = "info")
+      )
+      
+      
+    ),
     footer = dashboardFooter(),
     body = dashboardBody(
       tags$head(
         tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
       ),
-      tags$style(HTML("
-
-
-                
-                    .info-box{
-                      background-color: #ffffff !important;
-                    }
-
-                ")),
+      # tags$style(HTML("
+      # 
+      # 
+      #           
+      #               .info-box{
+      #                 background-color: #ffffff !important;
+      #               }
+      # 
+      #           ")),
 
       tabItems(
 
@@ -136,11 +153,11 @@ ui <- dashboardPage(
        tabItem(tabName= "indicador",
        fluidRow(
        infoBox(
-          title = "Card 1",
+          title = "Avaliação",
           value = NULL,
-          subtitle = "Descrição",
+          subtitle = "meanAvaliacao",
           icon = shiny::icon("chart-area", color="white"),
-          color = "gray",
+          color = "info",
           width = 3,
           href = NULL,
           fill = FALSE,
@@ -150,25 +167,24 @@ ui <- dashboardPage(
           
         ),
         infoBox(
-          title = "Card 2",
+          title = "Despesas",
           value = NULL,
           subtitle = "Descrição",
           icon = icon("chart-area", class = NULL, lib = "font-awesome"),
-          color = "gray",
+          color = "info",
           width = 3,
           href = NULL,
-          fill = FALSE,
+          fill = FALSE,  #SELECIONA COR DO ICONE PARA O TITULOS E SUB
           gradient = FALSE,
           elevation = NULL,
           iconElevation = NULL
           
         ),
        infoBox(
-         title = "Card 3",
-         value = NULL,
-         subtitle = "Descrição",
+         title = "Receita",
+         subtitle = "format_dollars(receita)",
          icon = icon("dollar-sign", class = NULL, lib = "font-awesome"),
-         color = "gray",
+         color = "info",
          width = 3,
          href = NULL,
          fill = FALSE,
@@ -178,11 +194,11 @@ ui <- dashboardPage(
          
        ),
        infoBox(
-         title = "Card 4",
+         title = "Lojas",
          value = NULL,
-         subtitle = "Descrição",
+         subtitle = "nlojas",
          icon = icon("arrow-down", class = NULL, lib = "font-awesome"),
-         color = "gray",
+         color = "info",
          width = 3,
          href = NULL,
          fill = FALSE,
@@ -192,10 +208,14 @@ ui <- dashboardPage(
          
        ),
        
-        #box(plotOutput("tb_vendas_categoria", height = 280)),
+        box(
+          title = "Evolução das vendas por trimestre", 
+          height = 375
+        ),
         box(
           title = "Vendas por categorias", 
-          height = 375,DT::dataTableOutput("crostable"))
+          height = 375,
+          DT::dataTableOutput("tb_vendas_categoria"))
           #box(plotOutput("plot1", height = 280))
 
       )

@@ -1,0 +1,13 @@
+name: Jupiter_Analytics
+title: Jupiter_Analytics
+username:
+account: claytoncsj
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5597759
+bundleId: 5553109
+url: https://claytoncsj.shinyapps.io/Jupiter_Analytics/
+when: 1644255334.92601
+lastSyncTime: 1644255334.92601
+asMultiple: FALSE
+asStatic: FALSE

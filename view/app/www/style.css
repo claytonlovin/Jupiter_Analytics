@@ -1,3 +1,12 @@
+.datepicker table tr td.active:active:hover, .datepicker table tr td.active:active:focus, .datepicker table tr td.active.focus:active, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.active.focus, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.highlighted.focus:active, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active.highlighted.active.focus{
+  background-color: #17a2b8b8 !important;
+  border-color: #17a2b8 !important;
+}
+.datepicker table tr td.active:active, .datepicker table tr td.active.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active.highlighted.active{
+  background-color: #17a2b8b8 !important;
+  border-color: #17a2b8 !important;
+}
+
 .page-item.active .page-link {
     background-color: #17a2b8b8 !important;
     border: 1px solid #17a2b8b8;
@@ -33,4 +42,14 @@ table.dataTable{
   
   
   
+/*.info-box{
+  background-color: #fff0 !important;
+}*/
+.custom-control-input:checked~.custom-control-label::before{
+  background-color: #17a2b8 !important;
+  border-color: #17a2b8 !important;
+}
+.dark-mode .info-box{
+    background-color: #17a2b8;
+    color: #fff;
 }

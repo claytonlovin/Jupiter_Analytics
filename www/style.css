@@ -1,3 +1,8 @@
+svg{
+  background-color: #ffffff00 !important;
+  
+}
+
 .datepicker table tr td.active:active:hover, .datepicker table tr td.active:active:focus, .datepicker table tr td.active.focus:active, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.active.focus, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.highlighted.focus:active, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active.highlighted.active.focus{
   background-color: #17a2b8b8 !important;
   border-color: #17a2b8 !important;
@@ -28,7 +33,10 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination{
 .card-body{
   padding: 0.1rem;
 }
-
+/*CARD 1 GRÁFICO DE BARRAS*/
+.plot-container .plotly svg{
+  height: 360px !important;
+}
 /*TABLE BORDER*/
 .table td, .table th{
   border: none;

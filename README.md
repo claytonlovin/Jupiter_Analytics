@@ -6,7 +6,7 @@
 
 Construir um modelo de dashboard que possa ser reutilizado em vários projetos, facilitando a implementação rápida. 
 
-
+Demonstração [aqui](https://claytoncsj.shinyapps.io/Jupiter_Analytics/)
 ## Bibliotecas utilizadas 
 
 
@@ -20,10 +20,5 @@ Construir um modelo de dashboard que possa ser reutilizado em vários projetos, 
 </a>
 
 [![Linkedin Badge](https://img.shields.io/badge/-Clayton-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/clayttonsilva/)](https://www.linkedin.com/in/clayttonsilva/) 
-
-
-## Licença
-
-Este projeto esta sobe a licença [GPL V2](./LICENSE).
 
 Feito com ❤️ por Clayton Silva[Entre em contato!](https://www.linkedin.com/in/clayttonsilva/)

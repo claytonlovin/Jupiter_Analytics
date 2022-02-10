@@ -5,9 +5,10 @@ account: claytoncsj
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5597759
-bundleId: 5553109
+bundleId: 5563431
 url: https://claytoncsj.shinyapps.io/Jupiter_Analytics/
-when: 1644255334.92601
-lastSyncTime: 1644255334.92601
+when: 1644464414.16688
+lastSyncTime: 1644464414.16688
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: view/app/.Rhistory|view/app/server.R|view/app/ui.R|view/app/www/style.css

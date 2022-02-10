@@ -1,9 +1,3 @@
-library(shiny)
-library(bs4Dash)
-library(shinyWidgets)
-library(DT)
-# source("datasetting.R", local = TRUE)
-
 
 ui <- dashboardPage(
     title = "Jupiter Analytics",
@@ -127,6 +121,13 @@ ui <- dashboardPage(
                        format = "dd/mm/yyyy",
                        startview =  "month"
                        ), 
+        
+        # selectInput("variable", "Período",
+        #             c("1 Trimestre" = "one",
+        #               "2 Trimestre" = "two",
+        #               "3 Trimestre" = "three",
+        #               "4 Trimestre" = "four")),
+        
         actionButton("simulate", "Aplicar Filtro!", status = "info")
       )
       
@@ -197,19 +198,25 @@ ui <- dashboardPage(
          elevation = NULL,
          iconElevation = NULL
          
-       ),
-       
+       )
+      ),
+      
+      #
+      fluidRow(
         box(
-          title = "Evolução das vendas por trimestre", 
-          height = 375
+          title = "As 5 melhores categorias", 
+          height = 375,
+          plotly::plotlyOutput("bar")
+          
         ),
         box(
           title = "Vendas por categorias", 
           height = 375,
           DT::dataTableOutput("tb_vendas_categoria"))
-          #box(plotOutput("plot1", height = 280))
-
-      )
+        #box(plotOutput("plot1", height = 280))
+      ),
+      
+      
        ),
        # FIM TELA DE EXIBIÇÃO DA HOME
         tabItem(tabName = "financeiro",
@@ -247,20 +254,3 @@ ui <- dashboardPage(
     )
   )
 
-
-
-
-# server = function(input, output, sesssion) {
-#     observeEvent(input$modal, {
-#       showModal(modalDialog(
-#         title = "Important message",
-#         "This is an important message!",
-#         easyClose = FALSE
-#       ))
-
-#     })
-#   }
-
-
-
-# shinyApp(ui, server, basicPage)

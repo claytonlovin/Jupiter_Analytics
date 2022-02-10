@@ -21,6 +21,21 @@ olist_sellers_dataset <- read.csv("model/data/olist_sellers_dataset.csv")
 olist_geolocation_dataset <- read.csv("model/data/olist_geolocation_dataset.csv")
 
 
+
+
+# PEGAR A FREQUÊNCIA DAS CATGORIAS E ORGANIZAR UMA TABELA POR PREÇO.
+# JOIN ENTRE A TABLE_PRODUCT E TABLE_ITEMS
+products <- olist_products_dataset %>% 
+  inner_join(
+    olist_order_items_dataset,
+    by = c("product_id")
+    )
+
+category_frequency <- products %>% 
+  group_by(product_category_name)%>%
+  summarise(frequencia = n(), Valor = sum(price))%>%
+  arrange(desc(frequencia))
+
 ################################################################################
 # NÚMEROS DE LOJAS
 #nlojas <- nrow(olist_sellers_dataset)
@@ -37,30 +52,10 @@ meanAvaliacao <- round(meanAvaliacao, 2)
 
 # RECEITA
 receita <- sum(category_frequency$Valor)
-format_dollars(receita)
+#format_dollars(receita)
 
 # DESPESAS
 despesas <- round(600)
-
-
-
-################################################################################
-
-# PEGAR A FREQUÊNCIA DAS CATGORIAS E ORGANIZAR UMA TABELA POR PREÇO.
-# JOIN ENTRE A TABLE_PRODUCT E TABLE_ITEMS
-products <- olist_products_dataset %>% 
-  inner_join(
-    olist_order_items_dataset,
-    by = c("product_id")
-    )
-
-category_frequency <- products %>% 
-  group_by(product_category_name)%>%
-  summarise(frequencia = n(), Valor = sum(price))%>%
-  arrange(desc(frequencia))
-
-
-################################################################################
 
 evolucaoVendas <- products%>%
   full_join(
@@ -82,5 +77,5 @@ vendasCategoria <- evolucaoVendas %>%
 
 teste <- vendasCategoria%>%slice_head(n = 5)
 
-ggplot(teste, aes(x = teste$product_category_name, y = teste$frequencia))+
-  geom_bar(stat = "identity")
+# ggplot(teste, aes(x = teste$product_category_name, y = teste$frequencia))+
+#   geom_bar(stat = "identity")

@@ -17,7 +17,7 @@ ui <- dashboardPage(
           width = NULL,
           status = "info",
           style = "margin: auto"
-          #dashboardBadge(textOutput("btnVal"), color = "danger")
+          
         )
       ),
       # sidebarUserPanel(

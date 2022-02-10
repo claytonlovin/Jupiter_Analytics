@@ -13,8 +13,9 @@ server = function(input, output, sesssion) {
     # MODAL PRINCIPAL, CHAMA O MODAL DE PESQUISA POR AUDIO
     observeEvent(input$modal, {
       showModal(modalDialog(
-        title = "Important message",
-        "This is an important message!",
+        title = "Buscar por voz",
+        "Aplicando...",
+        footer = modalButton("Buscar"),
         easyClose = FALSE
       ))
 
